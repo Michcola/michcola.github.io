@@ -413,6 +413,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/网络与IP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/03/网络与IP/" itemprop="url">网络与IP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-03T00:41:41+08:00">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="TCP传输控制协议（英语：Transmission-Control-Protocol）"><a href="#TCP传输控制协议（英语：Transmission-Control-Protocol）" class="headerlink" title="TCP传输控制协议（英语：Transmission Control Protocol）"></a>TCP传输控制协议（英语：Transmission Control Protocol）</h3><hr>
+<p><a href="https://www.nowcoder.com/questionTerminal/63c8b45c91a544bd8febc1f1ff02e3b5?toCommentId=73766" target="_blank" rel="noopener">TCP 和 UDP 的区别是什么</a></p>
+<p>简答：TCP 可靠、面向连接、相对 UDP 较慢；UDP 不可靠，不面向连接、相对 TCP 较快。搞定。</p>
+<p><a href="https://github.com/jawil/blog/issues/14" target="_blank" rel="noopener">TCP 的三次握手指的是什么</a></p>
+<p>简答：每次建立连接前，客户端和服务端之前都要先进行三次对话才开始正式传输内容，三次对话大概是这样的：</p>
+<p>1. 客户端：我要连接你了，可以吗</p>
+<p>2. 服务端：嗯，我准备好了，连接我吧</p>
+<p>3. 客户端：那我连接你咯。</p>
+<p>4. 开始后面步骤</p>
+<p>如果想更了解 TCP 可以看 <a href="http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html" target="_blank" rel="noopener">此文</a>，也可以买一本《TCP/IP 详解（卷一）》</p>
+<h3 id="IP-网络协议（英语：Internet-Protocol）"><a href="#IP-网络协议（英语：Internet-Protocol）" class="headerlink" title="IP 网络协议（英语：Internet Protocol）"></a>IP 网络协议（英语：Internet Protocol）</h3><hr>
+<p>只要你在互联网中，那么你就会有一个 IP。通俗上理解，IP 分为「内网 IP」 和「外网 IP」</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-e21bd4165be864a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>这里有一个重要的原则：一个端口对应一个服务。</p>
+<p>比如:</p>
+<p>要提供 HTTP 服务你最好使用 80 端口（能不能使用别的端口？可以，不过不建议你违反约定）</p>
+<p>要提供 HTTPS 服务你最好使用 443 端口（能不能使用别的端口？可以，不过不建议你违反约定）</p>
+<p>要提供 FTP 服务你最好使用 21 端口（能不能使用别的端口？可以，不过不建议你违反约定）</p>
+<p>问题：一共由多少端口？</p>
+<p>每个机器一共有 65535（2的16次方减1）个端口（这是协议规定的）。不过这些端口的使用由一些规定</p>
+<p>0 到 1023（2的10次方减1）号端口是留给系统使用的，你只有拥有了管理员权限后，才能使用这 1024 个端口。</p>
+<p>其他端口可以给普通用户使用</p>
+<p>如果一个端口正在提供服务，也就是被占用了，那么就不能再使用这个端口。除非你先停掉正在占用这个端口的服务。以后你们会经常遇到这个问题。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/如何使用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -944,7 +1086,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -957,7 +1099,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
