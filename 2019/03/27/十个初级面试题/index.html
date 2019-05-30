@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,面试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###第一题1.请写出一个符合 W3C 规范的 HTML 文件，要求页面标题为「我的页面」页面中引入了一个外部 CSS 文件，文件路径为 /style.css页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效页面中引入了一个外部 JS 文件，路径为">
+<meta name="keywords" content="JavaScript,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="十个初级面试题">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/十个初级面试题/index.html">
+<meta property="og:site_name" content="Mich&#39;s Blog">
+<meta property="og:description" content="###第一题1.请写出一个符合 W3C 规范的 HTML 文件，要求页面标题为「我的页面」页面中引入了一个外部 CSS 文件，文件路径为 /style.css页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效页面中引入了一个外部 JS 文件，路径为">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16597614-64c19b36613ff3ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-05-30T16:09:30.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="十个初级面试题">
+<meta name="twitter:description" content="###第一题1.请写出一个符合 W3C 规范的 HTML 文件，要求页面标题为「我的页面」页面中引入了一个外部 CSS 文件，文件路径为 /style.css页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效页面中引入了一个外部 JS 文件，路径为">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/16597614-64c19b36613ff3ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/27/十个初级面试题/">
+
+
+
+
+
+  <title>十个初级面试题 | Mich's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mich's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/十个初级面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">十个初级面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T00:08:37+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###第一题<br>1.请写出一个符合 W3C 规范的 HTML 文件，要求<br>页面标题为「我的页面」<br>页面中引入了一个外部 CSS 文件，文件路径为 /style.css<br>页面中引入了另一个外部 CSS 文件，路径为 /print.css，该文件仅在打印时生效<br>页面中引入了另一个外部 CSS 文件，路径为 /mobile.css，该文件仅在设备宽度小于 500 像素时生效<br>页面中引入了一个外部 JS 文件，路径为 /main.js<br>页面中引入了一个外部 JS 文件，路径为 /gbk.js，文件编码为 GBK<br>页面中有一个 SVG 标签，SVG 里面有一个直径为 100 像素的圆圈，颜色随意<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/print.css&quot; media=&quot;print&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/mobile.css&quot; media=&quot;screen and (max-width: 500px)&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;我的页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;svg width=&quot;100%&quot; height=&quot;200&quot;&gt;</span><br><span class="line">        &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;50&quot; fill=&quot;red&quot; /&gt;</span><br><span class="line">    &lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;/gbk.js&quot; charset=&quot;gbk&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>###第二题<br><a href="https://github.com/Bless-L/MyBlog/blob/master/post/2016%E8%85%BE%E8%AE%AF%E5%AE%9E%E4%B9%A0%E7%94%9F%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%8E%86%E5%8F%8A%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89.md" title="null" target="_blank" rel="noopener">2016年腾讯前端面试题</a>：<br>移动端是怎么做适配的？</p>
+<p>回答要点：</p>
+<ol>
+<li>meta viewport</li>
+<li>媒体查询</li>
+<li>动态 rem 方案<blockquote>
+<p>1.meta viewport<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</code><br>2.媒体查询<br><code>&lt;style&gt; @media(max-width:320px){ 
+body{background: green;} 
+} 
+&lt;/style&gt;</code><br>这里的max-width:320px指手机分辨率，如果媒体满足max-width320px，就生效这个css样式。<br>3.动态 rem 方案<br>rem是通过根元素的字体大小来设置元素的宽高的,以此来达在不同屏幕尺寸中等比例缩放达到完美的展现效果<br>1rem = 根元素字体大小<br><code>@function px( $px ){
+@return $px/$designWidth*10 + rem;
+}
+$designWidth: 320px; //为设计稿的宽度</code></p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>###第三题<br><a href="https://earthsplitter.github.io/2017/03/31/2017%E8%85%BE%E8%AE%AF%E5%AE%9E%E4%B9%A0%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" title="null" target="_blank" rel="noopener">2017年腾讯前端实习面试题（二面）</a>：<br>用过CSS3吗? 实现圆角矩形和阴影怎么做?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;JS Bin&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">.div1&#123;</span><br><span class="line">  border-radius:20px;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  width:110px;</span><br><span class="line">  height:100px;</span><br><span class="line">&#125;</span><br><span class="line">.div2&#123;</span><br><span class="line">  box-shadow: 5px 5px 10px #555;</span><br><span class="line">  border: 1px solid black;</span><br><span class="line">  width:20px;</span><br><span class="line">  height: 20px;</span><br><span class="line">&#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>border-radius:10px;</code>设置矩形外边框圆角<br><code>box-shadow: 5px 5px 10px #555;</code>设置阴影效果<br><code>/* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影颜色 */</code></p>
+<hr>
+<p>###第四题<br>什么是闭包，闭包的用途是什么？</p>
+<ol>
+<li><p>什么是闭包?<br>概念:如果一个函数,使用了它范围外的变量,那么(这个函数+这个变量) 就叫做闭包<br>ps:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a=1</span><br><span class="line">function f4()&#123; //函数f4可以访问到局部变量a.这就是一个闭包</span><br><span class="line">  console.log(a) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>闭包的作用</p>
+</li>
+</ol>
+<p>2.1  使函数内部可以访问外部变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> var num = 12;</span><br><span class="line"> function showNum() &#123;</span><br><span class="line">     console.log(num);</span><br><span class="line"> &#125;</span><br><span class="line">showNum();//12</span><br></pre></td></tr></table></figure></p>
+<p>2.2  在函数内部再定义一个内部函数，并将这个内部函数当做返回值，这样我们就可以获取函数的局部变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function showNum() &#123;</span><br><span class="line">      var num = 12;</span><br><span class="line">      function showNum2() &#123;</span><br><span class="line">           console.log(num);</span><br><span class="line">      &#125;;</span><br><span class="line">      return showNum2;</span><br><span class="line">  &#125;</span><br><span class="line">var myNum = showNum();</span><br><span class="line">myNum();//12</span><br></pre></td></tr></table></figure></p>
+<p>2.3 将创建的变量的值始终保持在内存中，以供本地环境使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> function showNum() &#123;</span><br><span class="line">      var num = 12;</span><br><span class="line">      function showNum2() &#123;</span><br><span class="line">           console.log(++num);</span><br><span class="line">      &#125;;</span><br><span class="line">      return showNum2;</span><br><span class="line">  &#125;</span><br><span class="line">var myNum = showNum();</span><br><span class="line">myNum();//13</span><br></pre></td></tr></table></figure></p>
+<p>一般情况下在函数被调用完后不再被引用时，该函数都会被垃圾回收机制（garbage collection），但是由于上述代码中函数showNum2被myNum引用，而函数showNum2又依赖于函数showNum，因此函数showNum不会被垃圾回收机制回收。</p>
+<hr>
+<p>###第五题<br>出处同上：<br>call、apply、bind 的用法分别是什么？</p>
+<blockquote>
+<p>1.call,apply,bind都可以改变函数体内this的指向<br>2.在使用时，传入第一个参数都是用来传递this的指向，对上下文的指定<br>3.都可以传入多个参数，call和bind都是按顺序传递，apply的传参类型是数组，bind参数不会立即调用,可以在函数执行的时候再次添加</p>
+</blockquote>
+<hr>
+<p>###第六题<br>请说出至少 8 个 HTTP 状态码，并描述各状态码的意义。<br>例如：</p>
+<p>状态码 200 表示响应成功。</p>
+<ul>
+<li><strong>200</strong>:OK ,表示<strong>请求已成功</strong></li>
+<li><strong>202</strong>:Accept ,表示<strong>服务器已接受请求,但未处理</strong></li>
+<li><strong>301</strong>:Moved Permanently ,表示<strong>服务器永久搬家</strong></li>
+<li><strong>302</strong>:Found ,表示<strong>服务器临时搬家</strong></li>
+<li><strong>400</strong>:Bad Request ,表示<strong>错误请求</strong></li>
+<li><strong>403</strong>:Forbidden ,表示<strong>禁止访问</strong></li>
+<li><strong>404</strong>:Not Found ,表示<strong>服务器找不到请求网页</strong></li>
+<li><strong>408</strong>:Request Timeout ,表示<strong>请求超时</strong></li>
+<li><strong>500</strong>:Internal Server Error ,表示<strong>服务器内部错误</strong></li>
+</ul>
+<hr>
+<p>###第七题<br>出处同上：<br>请写出一个 HTTP post 请求的内容，包括四部分。<br>其中<br>第四部分的内容是 username=ff&amp;password=123<br>第二部分必须含有 Content-Type 字段<br>请求的路径为 /path</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST /path HTTP/1.1</span><br><span class="line">HOST: www.baidu.com</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line">Content-Length: 24</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">username=ff&amp;password=123</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###第八题<br>请说出至少三种排序的思路，这三种排序的时间复杂度分别为<br>O(n*n)<br>O(n log2 n)<br>O(n + max)</p>
+<blockquote>
+<p>O(n*n):冒泡排序<br>相邻元素两两比对，大的元素放右边，小的放左边 。对每一对相邻元素做同样工作，这样最大的就会在最后面。对所有元素重复以上步骤除了最后一个，直到排序完成<br>O(n log2 n):快速排序<br>以一个元素为基准重新排列，比基准大的排右边，比基准小的排左边，然后分别对左边右边重复上面操作，直到只有一个数字为止<br>O(n + max): 基数排序<br>将所有待比较的数值(正整数)统一成同样长度的数位数值，数位短的在前面补零。然后从最低位开始排序一直到高位排完后，数列就变成有序序列</p>
+</blockquote>
+<hr>
+<p>###第九题<br>著名前端面试题：<br>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</p>
+<p>这一题是在挖掘你的知识边界，所以你知道多少就要答多少。</p>
+<blockquote>
+<p>DNS解析<br>DNS解析就是根据域名查找IP地址<br>TCP连接<br>在获取到IP地址后，便会开始建立一次连接，由TCP协议完成，主要通过三次握手进行连接。<br>　　第一次握手： 主机向服务器发送一个连接的请求（您好，我想认识您）<br>　　第二次握手： 服务器收到请求后发送同意连接的信号（好的，很高兴认识您）<br>　　第三次握手： 主机收到服务器的信号,再次向服务器发送了确认信号（我也很高兴认识您）,自此主机与服务器建立了连接<br>完成三次握手,主机与服务器开始传送数据。<br>发送HTTP请求<br>HTTP请求报文是由三部分组成: 请求行, 请求报头和请求正文。<br>服务器处理请求并返回HTTP报文<br>HTTP响应报文也是由三部分组成: 状态码, 响应报头和响应报文。<br>浏览器解析渲染页面<br>浏览器是一个边解析边渲染的过程。首先浏览器解析HTML文件构建DOM树，然后解析CSS文件构建渲染树，等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。<br>连接结束<br>通过四次挥手关闭连接。<br>　　1. 主机向服务器发送一个断开连接的请求（不早了，我该走了）；<br>　　2. 服务器接到请求后发送确认收到请求的信号（知道了）；<br>　　3. 服务器向主机发送断开通知（我也该走了）；<br>　　4. 主机接到断开通知后断开连接并反馈一个确认信号（嗯，好的），服务器收到确认信号后断开连接</p>
+</blockquote>
+<p>补充一点点缓存知识:<br>浏览器查找域名的 IP 地址<br>这一步包括 DNS 具体的查找过程，包括：浏览器缓存-&gt;系统缓存-&gt;路由器缓存</p>
+<blockquote>
+<p>DNS域名解析过程后会缓存解析结果，其中主要在两个地方缓存结果，一个是本地域名服务器，一个是用户的本地机器，这两个缓存都是TTL值和本机缓存大小控制的。<br><img src="https://upload-images.jianshu.io/upload_images/16597614-64c19b36613ff3ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DNS域名解析过程"><br>可以深入了解<a href="https://juejin.im/post/5b83b0bfe51d4538c63131a8#heading-10" target="_blank" rel="noopener">关于浏览器的缓存机制</a></p>
+</blockquote>
+<hr>
+<p>###第十题<br>著名面试题：<br>如何实现数组去重？<br>假设有数组 array = [1,5,2,3,4,2,3,1,3,4]<br>你要写一个函数 unique，使得<br>unique(array) 的值为 [1,5,2,3,4]<br>也就是把重复的值都去掉，只保留不重复的值。</p>
+<p>要求：</p>
+<p>不要做多重循环，只能遍历一次<br>请给出两种方案，一种能在 ES 5 环境中运行，一种能在 ES 6 环境中运行（提示 ES 6 环境多了一个 Set 对象）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//  ES5:</span><br><span class="line">var array =[1,5,2,3,4,2,3,1,3,4]</span><br><span class="line">function unique(ar) &#123;</span><br><span class="line">    var tmp = &#123;&#125;,</span><br><span class="line">        ret = [];</span><br><span class="line"></span><br><span class="line">    for (var i = 0, j = ar.length; i &lt; j; i++) &#123;</span><br><span class="line">        if (!tmp[ar[i]]) &#123;</span><br><span class="line">            tmp[ar[i]] = 1;</span><br><span class="line">            ret.push(ar[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  console.log(ret)</span><br><span class="line">&#125;</span><br><span class="line">unique(array)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//  ES6:</span><br><span class="line">var array = [1,5,2,3,4,2,3,1,3,4]</span><br><span class="line">function unique(arr)&#123;</span><br><span class="line">      return Array.from(new Set(arr))</span><br><span class="line">  &#125;</span><br><span class="line">unique(array)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript-面试/" rel="tag"># JavaScript,面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/实现一个jQuery的API/" rel="next" title="实现一个jQuery的API">
+                <i class="fa fa-chevron-left"></i> 实现一个jQuery的API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mich</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mich</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
