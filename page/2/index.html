@@ -229,6 +229,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/JS里的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/14/JS里的数据类型/" itemprop="url">JS里的数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-14T10:43:13+08:00">
+                2019-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>js有七种简单类型(基本类型)<br>number,string,boolean,symbol,null,undefined,object</p>
+<p>num:可以用十进制,二进制(0b11),八进制(011),十六进制(0x11)表示</p>
+<hr>
+<p>str: ‘你好’ 与”你好”—<br>‘’ “”    与    ‘ ‘ “ “—空字符串与空格字符串区别是0与1的字符位<br>转义字符串:\n — 回车<br>\t —tab制表符<br>\ — 表示\<br>\’ — 表示’</p>
+<p>多行字符串<br>var a1 = ‘1234\                      (坑人语法)<br>                567’<br>var a2 = ‘123’  +<br>              ‘456 ‘                      (好用)</p>
+<p>ES6语法 : var a3 = <code>123       (反引号`</code>)<br>456`                                (7个字符)</p>
+<hr>
+<p>bool: true 真 false假<br>&amp;&amp;:与,||:或<br>只有a&amp;&amp;b同时为真时才为真,<br>只有a||b同时为假时才为假.</p>
+<hr>
+<p>null与undefined都表示什么都没有,<br>他们之间的区别是?<br>1.变量没有值-undefined<br>2.有一个对象object.现在不想赋值-null(var = null   //[空对象])<br>有一个非对象,不想给值-undefined(var = undefined //[空的非对象])</p>
+<hr>
+<p>object , 哈希表 (复杂类型,由简单类型组成)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.self.self.self.name?</span><br></pre></td></tr></table></figure></p>
+<p>name = { 9a : ‘frank’}    ×<br>name = { ‘9a’ : ‘frank’}   √<br>name = { ‘ ‘ : ‘frank’}   √<br>由此可见加引号几乎都可以不报错<br>标识符=变量名</p>
+<hr>
+<p>typeof 返回数据类型but有bug就是:<br>1.typeof null会 返回’object’<br>2.typeof fn 会返回’function’</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/HTML标签/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1383,7 +1517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1396,7 +1530,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

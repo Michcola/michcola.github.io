@@ -229,6 +229,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/什么是JSONP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/04/什么是JSONP/" itemprop="url">什么是JSONP?</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-04T12:12:59+08:00">
+                2019-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;<br>为什么叫jsonp?<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$&#123;query.callbackName&#125;.call(<span class="literal">undefined</span>,   <span class="comment">//左padding</span></span><br><span class="line">&#123;<span class="string">"success"</span>:<span class="literal">true</span>,                         <span class="comment">//json</span></span><br><span class="line"><span class="string">"left"</span>:$&#123;newAmount&#125;&#125;                     <span class="comment">//json</span></span><br><span class="line">)                                       <span class="comment">//右padding</span></span><br></pre></td></tr></table></figure></p>
+<p>JSON+Padding = JSONP<br>(可以理解为:String + Padding = StringP)</p>
+<hr>
+<p>什么是jsonp?<br>JSONP<br>请求方：frank.com 的前端程序员（浏览器）<br>响应方：jack.com 的后端程序员（服务器）</p>
+<ol>
+<li>请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=yyy</li>
+<li>响应方根据查询参数callbackName，构造形如<pre><code>i. yyy.call(undefined, &apos;你要的数据&apos;)
+ii. yyy(&apos;你要的数据&apos;)
+</code></pre>这样的响应</li>
+<li>浏览器接收到响应，就会执行 yyy.call(undefined, ‘你要的数据’)</li>
+<li>那么请求方就知道了他要的数据<br>这就是 JSONP</li>
+</ol>
+<p>约定：</p>
+<ol>
+<li>callbackName -&gt; callback<br>yyy -&gt; 随机数 </li>
+<li>frank12312312312321325()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">url: &quot;http://jack.com:8002/pay&quot;,</span><br><span class="line">dataType: &quot;jsonp&quot;,</span><br><span class="line">success: function( response ) &#123;</span><br><span class="line">    if(response === &apos;success&apos;)&#123;</span><br><span class="line">    amount.innerText = amount.innerText - 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>为什么JSONP不支持post?</p>
+<ol>
+<li>因为JSONP 是通过动态创建script实现的</li>
+<li>动态创建script的时候只能用get没有办法用post</li>
+</ol>
+<hr>
+<p>jsonp来源:form提交表单会刷新页面-&gt;img只能知道succee和fail,不知道数据-&gt;script+callback就是jsonp了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/十个初级面试题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1545,140 +1690,6 @@ $designWidth: 320px; //为设计稿的宽度</code></p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/JS里的数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/JS里的数据类型/" itemprop="url">JS里的数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-14T10:43:13+08:00">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>js有七种简单类型(基本类型)<br>number,string,boolean,symbol,null,undefined,object</p>
-<p>num:可以用十进制,二进制(0b11),八进制(011),十六进制(0x11)表示</p>
-<hr>
-<p>str: ‘你好’ 与”你好”—<br>‘’ “”    与    ‘ ‘ “ “—空字符串与空格字符串区别是0与1的字符位<br>转义字符串:\n — 回车<br>\t —tab制表符<br>\ — 表示\<br>\’ — 表示’</p>
-<p>多行字符串<br>var a1 = ‘1234\                      (坑人语法)<br>                567’<br>var a2 = ‘123’  +<br>              ‘456 ‘                      (好用)</p>
-<p>ES6语法 : var a3 = <code>123       (反引号`</code>)<br>456`                                (7个字符)</p>
-<hr>
-<p>bool: true 真 false假<br>&amp;&amp;:与,||:或<br>只有a&amp;&amp;b同时为真时才为真,<br>只有a||b同时为假时才为假.</p>
-<hr>
-<p>null与undefined都表示什么都没有,<br>他们之间的区别是?<br>1.变量没有值-undefined<br>2.有一个对象object.现在不想赋值-null(var = null   //[空对象])<br>有一个非对象,不想给值-undefined(var = undefined //[空的非对象])</p>
-<hr>
-<p>object , 哈希表 (复杂类型,由简单类型组成)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.self.self.self.name?</span><br></pre></td></tr></table></figure></p>
-<p>name = { 9a : ‘frank’}    ×<br>name = { ‘9a’ : ‘frank’}   √<br>name = { ‘ ‘ : ‘frank’}   √<br>由此可见加引号几乎都可以不报错<br>标识符=变量名</p>
-<hr>
-<p>typeof 返回数据类型but有bug就是:<br>1.typeof null会 返回’object’<br>2.typeof fn 会返回’function’</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1729,7 +1740,7 @@ $designWidth: 320px; //为设计稿的宽度</code></p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1742,7 +1753,7 @@ $designWidth: 320px; //为设计稿的宽度</code></p>
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

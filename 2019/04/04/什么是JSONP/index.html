@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JSONP,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mich&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/计算机网络/index.html">
+<meta name="description" content="SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;为什么叫jsonp?1234$&amp;#123;query.callbackName&amp;#125;.call(undefined,   //左padding&amp;#123;&quot;success&quot;:true,                         //json&quot;left&quot;:$">
+<meta name="keywords" content="JSONP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是JSONP?">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/什么是JSONP/index.html">
 <meta property="og:site_name" content="Mich&#39;s Blog">
+<meta property="og:description" content="SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;为什么叫jsonp?1234$&amp;#123;query.callbackName&amp;#125;.call(undefined,   //左padding&amp;#123;&quot;success&quot;:true,                         //json&quot;left&quot;:$">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-02T14:15:58.210Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mich&#39;s Blog">
+<meta name="twitter:title" content="什么是JSONP?">
+<meta name="twitter:description" content="SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;为什么叫jsonp?1234$&amp;#123;query.callbackName&amp;#125;.call(undefined,   //左padding&amp;#123;&quot;success&quot;:true,                         //json&quot;left&quot;:$">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/计算机网络/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/04/什么是JSONP/">
 
 
 
 
 
-  <title>Tag: 计算机网络 | Mich's Blog</title>
+  <title>什么是JSONP? | Mich's Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,52 +219,172 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>计算机网络<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/什么是JSONP/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/03/03/网络与IP/" itemprop="url">
-              
-                <span itemprop="name">网络与IP</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">什么是JSONP?</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-03T00:41:41+08:00" content="2019-03-03">
-          03-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-04T12:12:59+08:00">
+                2019-04-04
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;<br>为什么叫jsonp?<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$&#123;query.callbackName&#125;.call(<span class="literal">undefined</span>,   <span class="comment">//左padding</span></span><br><span class="line">&#123;<span class="string">"success"</span>:<span class="literal">true</span>,                         <span class="comment">//json</span></span><br><span class="line"><span class="string">"left"</span>:$&#123;newAmount&#125;&#125;                     <span class="comment">//json</span></span><br><span class="line">)                                       <span class="comment">//右padding</span></span><br></pre></td></tr></table></figure></p>
+<p>JSON+Padding = JSONP<br>(可以理解为:String + Padding = StringP)</p>
+<hr>
+<p>什么是jsonp?<br>JSONP<br>请求方：frank.com 的前端程序员（浏览器）<br>响应方：jack.com 的后端程序员（服务器）</p>
+<ol>
+<li>请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=yyy</li>
+<li>响应方根据查询参数callbackName，构造形如<pre><code>i. yyy.call(undefined, &apos;你要的数据&apos;)
+ii. yyy(&apos;你要的数据&apos;)
+</code></pre>这样的响应</li>
+<li>浏览器接收到响应，就会执行 yyy.call(undefined, ‘你要的数据’)</li>
+<li>那么请求方就知道了他要的数据<br>这就是 JSONP</li>
+</ol>
+<p>约定：</p>
+<ol>
+<li>callbackName -&gt; callback<br>yyy -&gt; 随机数 </li>
+<li>frank12312312312321325()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">url: &quot;http://jack.com:8002/pay&quot;,</span><br><span class="line">dataType: &quot;jsonp&quot;,</span><br><span class="line">success: function( response ) &#123;</span><br><span class="line">    if(response === &apos;success&apos;)&#123;</span><br><span class="line">    amount.innerText = amount.innerText - 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p>为什么JSONP不支持post?</p>
+<ol>
+<li>因为JSONP 是通过动态创建script实现的</li>
+<li>动态创建script的时候只能用get没有办法用post</li>
+</ol>
+<hr>
+<p>jsonp来源:form提交表单会刷新页面-&gt;img只能知道succee和fail,不知道数据-&gt;script+callback就是jsonp了</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JSONP/" rel="tag"># JSONP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/27/十个初级面试题/" rel="next" title="十个初级面试题">
+                <i class="fa fa-chevron-left"></i> 十个初级面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -267,6 +392,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -472,6 +601,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
