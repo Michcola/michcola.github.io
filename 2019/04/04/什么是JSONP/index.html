@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mich&#39;s Blog">
 <meta property="og:description" content="SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;为什么叫jsonp?1234$&amp;#123;query.callbackName&amp;#125;.call(undefined,   //左padding&amp;#123;&quot;success&quot;:true,                         //json&quot;left&quot;:$">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-02T14:15:58.210Z">
+<meta property="og:updated_time" content="2019-06-03T14:59:11.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是JSONP?">
 <meta name="twitter:description" content="SRJ方案(Server Rendered javascript)[服务器返回的JavaScript]:无刷新,局部更新内容的方案;为什么叫jsonp?1234$&amp;#123;query.callbackName&amp;#125;.call(undefined,   //左padding&amp;#123;&quot;success&quot;:true,                         //json&quot;left&quot;:$">
@@ -326,6 +326,18 @@ ii. yyy(&apos;你要的数据&apos;)
 </ol>
 <hr>
 <p>jsonp来源:form提交表单会刷新页面-&gt;img只能知道succee和fail,不知道数据-&gt;script+callback就是jsonp了</p>
+<hr>
+<p>####同源策略与CORS跨域</p>
+<p>只有 协议+端口+域名 一模一样才允许发AJAX请求<br>一模一样一模一样一模一样一模一样一模一样</p>
+<ol>
+<li><p><a href="http://baidu.com可以向http://www.baidu.com发AJAX请求吗" target="_blank" rel="noopener">http://baidu.com可以向http://www.baidu.com发AJAX请求吗</a>? no</p>
+</li>
+<li><p><a href="http://baidu.com:80可以向http://baidu.com:81发AJAX请求吗" target="_blank" rel="noopener">http://baidu.com:80可以向http://baidu.com:81发AJAX请求吗</a>? no</p>
+</li>
+</ol>
+<p>浏览器必须保证<br>只有 协议+端口+域名 一模一样才允许发AJAX请求<br>CORS可以告诉浏览器,我俩一家的,别阻止他</p>
+<p>突破同源策略 === 跨域<br>CORS跨域<br>    <code>response.setHeader(&#39;Access-Control-Allow-Origin&#39;,&#39;*&#39;)//CORS核心</code></p>
+<p>Cross-Origin Resouce Sharing<br>C      O源      R       S</p>
 
       
     </div>
@@ -365,6 +377,10 @@ ii. yyy(&apos;你要的数据&apos;)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/06/关于AJAX和JSON/" rel="prev" title="关于AJAX和JSON">
+                关于AJAX和JSON <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -432,7 +448,7 @@ ii. yyy(&apos;你要的数据&apos;)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -445,7 +461,7 @@ ii. yyy(&apos;你要的数据&apos;)
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

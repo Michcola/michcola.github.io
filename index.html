@@ -229,6 +229,260 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/关于AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/03/关于AJAX/" itemprop="url">关于AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-03T22:55:59+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/关于AJAX和JSON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/06/关于AJAX和JSON/" itemprop="url">关于AJAX和JSON</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-06T12:05:59+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>######请使用原生 JS 写出一个 AJAX 请求（代码中必须出现 XMLHttpRequest）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">myButton.addEventListener(&apos;click&apos;, (e) =&gt;&#123;</span><br><span class="line">    let request = new XMLHttpRequest()</span><br><span class="line">    request.open(&apos;post&apos;,&apos;./xxx&apos;)   //配置request</span><br><span class="line">    request.send()</span><br><span class="line">    request.onreadystatechange = () =&gt;&#123;</span><br><span class="line">        if (request.readyState===4) &#123;</span><br><span class="line">            if (request.status &gt;= 200 &amp;&amp; request.status&lt;300) &#123;</span><br><span class="line">                let string = request.responseText</span><br><span class="line">                //把符合 JSON 语法的字符串转换成JS对应的值</span><br><span class="line">                let object = window.JSON.parse(string)</span><br><span class="line">                //JSON.parse 是浏览器提供的</span><br><span class="line">          &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>####AJAX<br>AJAX：异步的 JavaScript 和 XML</p>
+<ol>
+<li>使用 XMLHttpRequest 发请求</li>
+<li>服务器返回 XML 格式的字符串</li>
+<li>JS 解析 XML，并更新局部页面</li>
+</ol>
+<p>(由于XML太难写,后面都转用JSON)</p>
+<hr>
+<p>####JSON<br>JSON(抄袭JS,但是没有undefined和function类型)<br>JS vs JSON<br>undefined          没有<br>null          null<br>[‘a’,’b’,’c’]        [“a”,”b”,”c”]<br>function fn(){}          没有<br>[name:’value’]            [“name”: “value”]<br>‘string’          “string”<br>var a={}<br>self.a=a                搞不定<br>{<strong>proto</strong>}        没有原型链</p>
+<ol>
+<li>JSON没有undefined和function</li>
+<li>JSON的字符串首尾必须是”</li>
+</ol>
+<p>JS 和 JSON 有什么区别?<br>1.两门语言,道格拉斯<strong>抄袭</strong>布兰登艾克的,除了undefined和function其他都炒了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/什么是JSONP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -326,6 +580,18 @@ ii. yyy(&apos;你要的数据&apos;)
 </ol>
 <hr>
 <p>jsonp来源:form提交表单会刷新页面-&gt;img只能知道succee和fail,不知道数据-&gt;script+callback就是jsonp了</p>
+<hr>
+<p>####同源策略与CORS跨域</p>
+<p>只有 协议+端口+域名 一模一样才允许发AJAX请求<br>一模一样一模一样一模一样一模一样一模一样</p>
+<ol>
+<li><p><a href="http://baidu.com可以向http://www.baidu.com发AJAX请求吗" target="_blank" rel="noopener">http://baidu.com可以向http://www.baidu.com发AJAX请求吗</a>? no</p>
+</li>
+<li><p><a href="http://baidu.com:80可以向http://baidu.com:81发AJAX请求吗" target="_blank" rel="noopener">http://baidu.com:80可以向http://baidu.com:81发AJAX请求吗</a>? no</p>
+</li>
+</ol>
+<p>浏览器必须保证<br>只有 协议+端口+域名 一模一样才允许发AJAX请求<br>CORS可以告诉浏览器,我俩一家的,别阻止他</p>
+<p>突破同源策略 === 跨域<br>CORS跨域<br>    <code>response.setHeader(&#39;Access-Control-Allow-Origin&#39;,&#39;*&#39;)//CORS核心</code></p>
+<p>Cross-Origin Resouce Sharing<br>C      O源      R       S</p>
 
           
         
@@ -1387,314 +1653,11 @@ $designWidth: 320px; //为设计稿的宽度</code></p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JS普通类型和对象的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/16/JS普通类型和对象的区别/" itemprop="url">JS普通类型和对象的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T20:54:56+08:00">
-                2019-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###任意类型转字符串</p>
-<ol>
-<li>String(x)<br><img src="https://upload-images.jianshu.io/upload_images/16597614-57da8b1001e39b71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li>x.toString()<br>var n = null<br>n.toString()<br>报错’toString’ of null,没有这个api</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1+ &apos;1&apos; = (1).toString() + &apos;1&apos; =&quot;11&quot;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>x+’’<br><img src="https://upload-images.jianshu.io/upload_images/16597614-2cf7337c1904bbb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="x+ &#39;&#39;"></li>
-</ol>
-<hr>
-<p>###任意类型转数字</p>
-<ol>
-<li>Number(x)</li>
-<li>parseInt(x, 10) <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt" title="null" target="_blank" rel="noopener">MDN</a></li>
-<li>parseFloat(x) <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" title="null" target="_blank" rel="noopener">MDN</a></li>
-<li>x - 0</li>
-<li>+x</li>
-</ol>
-<hr>
-<p>###任意类型转布尔</p>
-<ol>
-<li>Boolean(x)</li>
-<li>!!x</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-ddf082dd041931f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="falsy值"></p>
-<p>number(0,NaN),string(‘’),null,undefined,object(全是ture)</p>
-<hr>
-<p>###关于内存的四个题目<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = a</span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">请问 a 显示是几？</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>: <span class="string">'a'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> b = a</span><br><span class="line">b = &#123;<span class="attr">name</span>: <span class="string">'b'</span>&#125;</span><br><span class="line">请问现在 a.name 是多少？</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>: <span class="string">'a'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> b = a</span><br><span class="line">b.name = <span class="string">'b'</span></span><br><span class="line">请问现在 a.name 是多少？</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>: <span class="string">'a'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> b = a</span><br><span class="line">b = <span class="literal">null</span></span><br><span class="line">请问现在 a 是什么？</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-523682d62905c58a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过程一"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-fc108fd45469254a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过程二"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-0bd7958f19c8a982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过程三"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-2813a5d4262a79e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过程四"></p>
-<hr>
-<p>###一道面试题<br><img src="https://upload-images.jianshu.io/upload_images/16597614-6587098d67302805.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<hr>
-<p>###GC 垃圾回收<br>如果一个对象没有被引用,它就是垃圾,将会被回收</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-4b95e17a51138569.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="回收垃圾"></p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function()&#123;&#125; //undefined</span><br><span class="line">document.body.onclick = fn//f ()&#123;&#125;</span><br><span class="line">fn = null // null</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-fdce3b634581aaf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="function会被回收吗?no"></p>
-<hr>
-<p>###浅拷贝VS深拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var b = a</span><br><span class="line">b = 2 //这个时候改变 b</span><br><span class="line">a 完全不受 b 的影响</span><br><span class="line">那么我们就说这是一个深复制</span><br></pre></td></tr></table></figure></p>
-<p>b变不影响a就是<strong>深拷贝</strong><br>所有数据<strong>基本类型</strong>赋值就是<strong>深拷贝</strong><br>对于<strong>复杂类型</strong>的数据（对象）来说，才要<strong>区分浅拷贝和深拷贝</strong>。<br>什么是<strong>深拷贝</strong>，就是对 Heap 内存进行完全的拷贝。<br><img src="https://upload-images.jianshu.io/upload_images/16597614-3cb63384e660424e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深拷贝"></p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">name:&apos;a&apos;&#125;</span><br><span class="line">var b = a</span><br><span class="line">b.name = &apos;b&apos;</span><br><span class="line">a.name //也是&apos;b&apos;</span><br></pre></td></tr></table></figure>
-<p>b变致a变就是<strong>浅拷贝</strong><br><img src="https://upload-images.jianshu.io/upload_images/16597614-940aba62e714bed6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="浅拷贝"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JS里的对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/16/JS里的对象/" itemprop="url">JS里的对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T12:51:07+08:00">
-                2019-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>全局对象:global(parseInt,parseFloat.//堆内存)</p>
-<p>window是个哈希,它的属性:<br>-ECMAScript规定:parseInt,parseFloat,Number(),String(),Boolean(),Object()……<br>-其它:私有(Chrome/Firefox),alert(弹框提示),prompt(用户填写),comfirm(确认),console(开发者打印),document(文档)w3c-DOM,history(浏览器)BOM…….</p>
-<hr>
-<p>var n = new Number()    -&gt;   (满足boss需求像java)但是没人用<br>BE: var n = 1    -&gt;  JS喜欢用<br>缺点:n.toString ×<br>妙计:临时转换<br>n.toString()<br>BE: temp = new Number(n)<br>temp.toString(),(然后取到toString后干掉temp)</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-4a3866afb38ed77b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="内存图"></p>
-<hr>
-<p>Sting API里.trim()去掉多余空格<br>.concat()连接字符串<br>.slice()切片(0,2)0到1<br>.replace() 替换</p>
-<hr>
-<p>5个false值<br>null,undefined,’ ‘,0,NaN<br>所有对象{}都是true</p>
-<hr>
-<p>####原型与原型链</p>
-<p>#####共用属性<br><img src="https://upload-images.jianshu.io/upload_images/16597614-900b2a3957de7446.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="String,Number,Boolean共有"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype就是共用属性---原型</span><br><span class="line">o1.__proto__ = Object.prototype</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n1.__proto__ === Number.prototype</span><br><span class="line">n1.__proto__.__proto__ === Object.prototype</span><br></pre></td></tr></table></figure>
-<p>str bool都是如此</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-280c1ff229c68b39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="String,Number,Boolean共有"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-1ae8fc357c82e63e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="对象__proto__=== 函数.prototype"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1740,7 +1703,7 @@ $designWidth: 320px; //为设计稿的宽度</code></p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1753,7 +1716,7 @@ $designWidth: 320px; //为设计稿的宽度</code></p>
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
