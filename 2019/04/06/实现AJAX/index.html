@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="AJAX,">
 
 
 
@@ -79,14 +79,20 @@
 
 
 
+<meta name="description" content="JS操作请求与响应 GET/xxx HTTP/1.1 HOST:jack.com:8088 Content-type:application/x-www-url-encoded AJAX的所有功能  客户端的JS发起请求（浏览器上的） 服务端的JS发送响应（Node.js上的）  JS可以任意设置请求Header吗第一部分: request.open(‘get’,’/xxx’)第二部分: requ">
+<meta name="keywords" content="AJAX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于AJAX">
-<meta property="og:url" content="http://yoursite.com/2019/06/03/关于AJAX/index.html">
+<meta property="og:title" content="实现AJAX">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/实现AJAX/index.html">
 <meta property="og:site_name" content="Mich&#39;s Blog">
+<meta property="og:description" content="JS操作请求与响应 GET/xxx HTTP/1.1 HOST:jack.com:8088 Content-type:application/x-www-url-encoded AJAX的所有功能  客户端的JS发起请求（浏览器上的） 服务端的JS发送响应（Node.js上的）  JS可以任意设置请求Header吗第一部分: request.open(‘get’,’/xxx’)第二部分: requ">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-03T14:55:59.129Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16597614-e31491d9b0c0b37f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-06-04T15:01:13.067Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于AJAX">
+<meta name="twitter:title" content="实现AJAX">
+<meta name="twitter:description" content="JS操作请求与响应 GET/xxx HTTP/1.1 HOST:jack.com:8088 Content-type:application/x-www-url-encoded AJAX的所有功能  客户端的JS发起请求（浏览器上的） 服务端的JS发送响应（Node.js上的）  JS可以任意设置请求Header吗第一部分: request.open(‘get’,’/xxx’)第二部分: requ">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/16597614-e31491d9b0c0b37f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -116,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/03/关于AJAX/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/06/实现AJAX/">
 
 
 
 
 
-  <title>关于AJAX | Mich's Blog</title>
+  <title>实现AJAX | Mich's Blog</title>
   
 
 
@@ -229,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/关于AJAX/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/实现AJAX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mich">
@@ -246,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于AJAX</h1>
+          <h1 class="post-title" itemprop="name headline">实现AJAX</h1>
         
 
         <div class="post-meta">
@@ -258,8 +264,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-03T22:55:59+08:00">
-                2019-06-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-06T12:28:56+08:00">
+                2019-04-06
               </time>
             
 
@@ -296,7 +302,32 @@
       
 
       
-        
+        <h4 id="JS操作请求与响应"><a href="#JS操作请求与响应" class="headerlink" title="JS操作请求与响应"></a>JS操作请求与响应</h4><p> GET/xxx HTTP/1.1<br> HOST:jack.com:8088<br> Content-type:application/x-www-url-encoded</p>
+<p>AJAX的所有功能</p>
+<ul>
+<li>客户端的JS发起请求（浏览器上的）</li>
+<li><p>服务端的JS发送响应（Node.js上的）</p>
+<ol>
+<li>JS可以任意设置请求Header吗<br>第一部分: request.open(‘get’,’/xxx’)<br>第二部分: request.setRequestHeadr(‘content-type’,’x-www-form-urlencoded’)<br>第四部分: request.send(‘a=1&amp;b=2’)</li>
+<li>JS可以任意设置响应Header吗<br>第一部分: request.status / request.statusText<br>第二部分: request.getResponseHeader(‘Content-type’) / request.getAllResponseHeaders()<br>第四部分: request.responseText</li>
+</ol>
+<p>HTTP/1.1 200 OK<br>Content-type:text/html<br>(这是一个回车)<br>&lt;!DOCTYPE html&gt;</p>
+<html>…</html>
+
+</li>
+</ul>
+<p>结论:通过AJAX可以任意设置<strong>请求</strong>和<strong>响应</strong>中四部分中的所有内容(AJAX把所有能力都开放给JS了)</p>
+<hr>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-e31491d9b0c0b37f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<hr>
+<p>ES6语法之解构赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let url = option.url</span><br><span class="line">    let method = options.method</span><br><span class="line">    let body = options.body</span><br><span class="line">    let successFn = options.successFn</span><br><span class="line">    let failFn = options.failFn</span><br><span class="line">    let headers = options.headers</span><br><span class="line"></span><br><span class="line">//ES6 解构赋值</span><br><span class="line">    let &#123;url,method,body,successFn,failFn,headers&#125; = options</span><br><span class="line"></span><br><span class="line">window.jQuery.ajax = function(options)&#123;...</span><br><span class="line">↓</span><br><span class="line">window.jQuery.ajax = function(&#123;url,method,body,successFn,failFn,headers&#125;)&#123;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//解构</span><br><span class="line">var a=&apos;a&apos;;var b= &apos;b&apos;; [a,b]=[b,a]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//ES5和ES6的一点拓展</span><br><span class="line">var a  = 1 //ES5  </span><br><span class="line">let a=2 //ES6</span><br><span class="line"></span><br><span class="line">f = function(a)&#123;console.log(a)&#125;//ES5</span><br><span class="line">f2 =(a) =&gt;&#123;console.log(a)&#125;//ES6</span><br><span class="line"></span><br><span class="line">var x = &apos;???&apos;    //ES5</span><br><span class="line">var o =&#123;&#125;</span><br><span class="line">o[x]=true // &apos;???&apos; as key</span><br><span class="line"></span><br><span class="line">var x = &apos;???&apos;    //ES6</span><br><span class="line">var o = &#123;</span><br><span class="line">      [x]:true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>####Promise<br>callback是回调,可以理解为一个函数<br>每个程序员的回调命不一样<br>promise解决了回调名不一样的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">return new Promise (function(resolve,reject)&#123;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>请背下这个代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function xxx()&#123;</span><br><span class="line">    return new Promise((f1, f2) =&gt; &#123;</span><br><span class="line">        doSomething()</span><br><span class="line">        setTimeout(()=&gt;&#123;</span><br><span class="line">            // 成功就调用 f1，失败就调用 f2</span><br><span class="line">        &#125;,3000)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx().then(success, fail)</span><br><span class="line"></span><br><span class="line">// 链式操作</span><br><span class="line">xxx().then(success, fail).then(success, fail)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -310,6 +341,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AJAX/" rel="tag"># AJAX</a>
+          
+        </div>
       
 
       
@@ -380,8 +417,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -409,7 +455,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -432,6 +478,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JS操作请求与响应"><span class="nav-number">1.</span> <span class="nav-text">JS操作请求与响应</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
