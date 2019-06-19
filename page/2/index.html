@@ -229,6 +229,838 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/实现一个jQuery的API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/实现一个jQuery的API/" itemprop="url">实现一个jQuery的API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T00:07:05+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function(nodeOrSelector) &#123;</span><br><span class="line">let nodes = &#123;&#125;</span><br><span class="line">if( typeof nodeOrSelector === &apos;string&apos; )&#123;</span><br><span class="line">let temp = document.querySelectorAll (nodeOrSelector) //伪数组</span><br><span class="line">for(let i=0 ; i&lt;temp.length ; i++ ) &#123;</span><br><span class="line">nodes[i] = temp[i]</span><br><span class="line">&#125;</span><br><span class="line">nodes.length = temp.length</span><br><span class="line">&#125;else if (nodeOrSelector instanceof Node)&#123;</span><br><span class="line">nodes = &#123;</span><br><span class="line">0:nodeOrSelector ,</span><br><span class="line">length:1</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nodes.addClass = function ( classes ) &#123;</span><br><span class="line">classes.forEach( (value) =&gt; &#123;</span><br><span class="line">for( let i=0 ; i&lt; nodes.length ; i++ )&#123;</span><br><span class="line">nodes[i].classList.add(value)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">nodes.getText = function()&#123;</span><br><span class="line">  var texts = []</span><br><span class="line">  for(let i = 0;i&lt; nodes.length;i++)&#123;</span><br><span class="line">    texts.push(node[i].textContent)</span><br><span class="line">  &#125;</span><br><span class="line">  return texts</span><br><span class="line">&#125;</span><br><span class="line">nodes.setText = function(text)&#123;</span><br><span class="line">  for(let i = 0; i&lt;nodes.length;i++)&#123;</span><br><span class="line">    nodes[i].textContent = text</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return nodes</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.$ = jQuery</span><br><span class="line">var $div = jQuery(&apos;div&apos;)</span><br><span class="line">$div.addClass([&apos;red&apos;])</span><br><span class="line">$div.setText(&apos;hi&apos;)</span><br></pre></td></tr></table></figure>
+<p>首先接受一个node或者选择器<br>把它封装成伪数组<br>为数组加上几个API然后返回nodes<br>声明一个node2=jQuery（‘选择器’），本质上是哈希<br>addClass是调用DOMAPI<br>jQuery是函数<br>nodes是个对象…</p>
+<hr>
+<p>判断text是否为undefined，如果是就拿值，如果不是就设一个值。</p>
+<p>jq接受一个字符串，分析值：是字符串则找到对应所有元素放到一个伪数组内，是节点就放到伪数组nodes里，然后调用addClass，遍历class逐个的放到伪数组的每一项元素里面</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/关于jQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/关于jQuery/" itemprop="url">关于jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T00:05:47+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://upload-images.jianshu.io/upload_images/16597614-f4c3b012c22ce694.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="用===,不要用=="></p>
+<ol>
+<li>自己封装两个函数<br>function getSiblings(node){}</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function getSiblings(node) &#123;</span><br><span class="line">            var allChildren = node.parentNode.children</span><br><span class="line">            var array = &#123;</span><br><span class="line">                length: 0</span><br><span class="line">            &#125;</span><br><span class="line">            for (let i = 0; i &lt; allChildren.length; i++) &#123;</span><br><span class="line">                if (allChildren[i] !== node) &#123;</span><br><span class="line">                    array[array.length] = allChildren[i]</span><br><span class="line">                    array.length += 1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return array</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(getSiblings(item3))</span><br></pre></td></tr></table></figure>
+<p>再封装一个<br>function addClass(node, classes){}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">for(let key in classes)&#123;</span><br><span class="line">  var value = classes[key]</span><br><span class="line">  if(value)&#123;</span><br><span class="line">    node.classList.add(key)</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    node.classList.remove(key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">addClass(item3,&#123;a:true,b:false,c:true&#125;)</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>命名空间<br>window.ffdom={}<br>ffdom.getSiblings = getSiblings<br>ffdon.addClass = addClass</li>
+</ol>
+<p>ffdom.getSiblings(item3)<br>ffdom.addClass(item3,[‘a’,’b’,’c’])</p>
+<ol start="3">
+<li><p>Node.prototype</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings = function()&#123;</span><br><span class="line">  var allChildren = this.parentNode.children</span><br><span class="line"></span><br><span class="line">  var array = &#123;</span><br><span class="line">    length: 0</span><br><span class="line">  &#125;</span><br><span class="line">  for (let i = 0; i &lt; allChildren.length; i++) &#123;</span><br><span class="line">    if (allChildren[i] !== this) &#123;</span><br><span class="line">      array[array.length] = allChildren[i]</span><br><span class="line">      array.length += 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">Node.prototype.addClass = function (classes) &#123;</span><br><span class="line">  classes.forEach( (value) =&gt; this.classList.add(value) )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">item3.getSiblings()</span><br><span class="line">// item3.getSiblings.call(item3)</span><br><span class="line">item3.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])</span><br><span class="line">// item3.addClass.call(item3, [abc])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Node2无侵入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = ???</span><br><span class="line">window.$ = jQuery</span><br><span class="line"></span><br><span class="line">var $div = $(&apos;div&apos;)</span><br><span class="line">$div.addClass(&apos;red&apos;) // 可将所有 div 的 class 添加一个 red</span><br><span class="line">$div.setText(&apos;hi&apos;) // 可将所有 div 的 textContent 变为 hi</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>实现代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function(nodeOrSelector) &#123;</span><br><span class="line">let nodes = &#123;&#125;</span><br><span class="line">if( typeof nodeOrSelector === &apos;string&apos; )&#123;</span><br><span class="line">let temp = document.querySelectorAll (nodeOrSelector) //伪数组</span><br><span class="line">for(let i=0 ; i&lt;temp.length ; i++ ) &#123;</span><br><span class="line">nodes[i] = temp[i]</span><br><span class="line">&#125;</span><br><span class="line">nodes.length = temp.length</span><br><span class="line">&#125;else if (nodeOrSelector instanceof Node)&#123;</span><br><span class="line">nodes = &#123;</span><br><span class="line">0:nodeOrSelector ,</span><br><span class="line">length:1</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nodes.addClass = function ( classes ) &#123;</span><br><span class="line">classes.forEach( (value) =&gt; &#123;</span><br><span class="line">for( let i=0 ; i&lt; nodes.length ; i++ )&#123;</span><br><span class="line">nodes[i].classList.add(value)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">nodes.getText = function()&#123;</span><br><span class="line">  var texts = []</span><br><span class="line">  for(let i = 0;i&lt; nodes.length;i++)&#123;</span><br><span class="line">    texts.push(node[i].textContent)</span><br><span class="line">  &#125;</span><br><span class="line">  return texts</span><br><span class="line">&#125;</span><br><span class="line">nodes.setText = function(text)&#123;</span><br><span class="line">  for(let i = 0; i&lt;nodes.length;i++)&#123;</span><br><span class="line">    nodes[i].textContent = text</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return nodes</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.$ = jQuery</span><br><span class="line">var $div = jQuery(&apos;div&apos;)</span><br><span class="line">$div.addClass([&apos;red&apos;])</span><br><span class="line">$div.setText(&apos;hi&apos;)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>首先接受一个node或者选择器<br>把它封装成伪数组<br>为数组加上几个API然后返回nodes<br>声明一个node2=jQuery（‘选择器’），本质上是哈希<br>声明一个 $div=jQuery（‘选择器’），本质上是哈希</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/JS的部分DOMapi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/23/JS的部分DOMapi/" itemprop="url">JS的部分DOMapi</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T00:03:38+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://upload-images.jianshu.io/upload_images/16597614-ef5367417c128669.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DOM树"></p>
+<p>####Node接口</p>
+<ol>
+<li>属性<br>childNodes,firstChild,<strong>innerText</strong>,lastChild,<strong>nextSibling</strong>,nodeName,<strong>nodeType</strong>,nodeValue,outerText,ownerDocument,parentElement,parentNode,previousSibling,<strong>textContent</strong><br>1.1 <strong>nextSibling</strong>可能会获取到文本节点<br><strong>1.2 <strong>innerText</strong>和<strong>textContent</strong>的区别?</strong><br><strong>1.3 <strong>nodeType</strong>记特殊值:1表示元素,3表示文本</strong><br>背下以下单词：</li>
+</ol>
+<ul>
+<li>child / children / parent</li>
+<li>node</li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element<br>然后互相组合</li>
+</ul>
+<ol start="2">
+<li>方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</li>
+</ol>
+<ul>
+<li>appendChild()</li>
+<li><strong>cloneNode()</strong>(深浅拷贝)</li>
+<li>contains()</li>
+<li>hasChildNodes()</li>
+<li>insertBefore()</li>
+<li><strong>isEqualNode()</strong>(看起来相等)</li>
+<li><strong>isSameNode()</strong>(真的想等)</li>
+<li>removeChild()</li>
+<li>replaceChild()</li>
+<li><strong>normalize()</strong> // 常规化</li>
+</ul>
+<ol>
+<li>搞清楚英文单词的意思就知道用法</li>
+<li>如果发现知道英文后依然不明白用法，看 MDN 的例子即可，如 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/normalize" title="null" target="_blank" rel="noopener">normalize</a></li>
+</ol>
+<p>DOM APi 无外乎「增删改查」</p>
+<hr>
+<p>####DOCUMENT接口<br><img src="https://upload-images.jianshu.io/upload_images/16597614-5dcbe2db7f21673b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="document.write危险性"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/JS函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/22/JS函数/" itemprop="url">JS函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T00:01:43+08:00">
+                2019-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>函数的五种声明<br>1.1 具名函数<br>function f(){<br> return undefined<br>}<br>1.2 匿名函数<br>var x<br>x =function (){<br>return<br>}<br>1.3 把有名字的函数赋值给一个变量<br>var x =<br>function y (input1,input2){}<br><img src="https://upload-images.jianshu.io/upload_images/16597614-b82577a89dd2356c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="函数作用域"><br>1.4 Function 函数对象<br>new Function(‘x’,’y’,’x+y’)<br><img src="https://upload-images.jianshu.io/upload_images/16597614-ed437bccfd862b3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Function 函数对象"></li>
+</ol>
+<p>1.5 箭头函数<br>f=(x,y) =&gt;x+y<br><img src="https://upload-images.jianshu.io/upload_images/16597614-0933f48b19ad9dc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="箭头函数"></p>
+<hr>
+<ol start="2">
+<li>函数的本质<br>函数就是一段可以反复调用的代码块.<br><img src="https://upload-images.jianshu.io/upload_images/16597614-54d992d3faad986b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="call调用"></li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-1f4b5ebc1094a793.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="七种数据类型&amp;原型链"></p>
+<p>f(1,2)与f.call(undefined,1,2),后者才是真正的调用函数<br><img src="https://upload-images.jianshu.io/upload_images/16597614-b6fa62861c54f68c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="函数调用"></p>
+<hr>
+<ol start="3">
+<li>this 和arguments<br>f.call(this,arguments)<br><img src="https://upload-images.jianshu.io/upload_images/16597614-7a320d7e01953c27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="this&amp;arguments"></li>
+</ol>
+<hr>
+<ol start="4">
+<li>call stack调用栈</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-dd8d6d35119041c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="调用堆栈"></p>
+<hr>
+<ol start="5">
+<li>作用域<br><img src="https://upload-images.jianshu.io/upload_images/16597614-80172e0a6f16ff45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br><img src="https://upload-images.jianshu.io/upload_images/16597614-08937eaf3cd68c2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="就近原则"></li>
+</ol>
+<p>第一题<br><img src="https://upload-images.jianshu.io/upload_images/16597614-a36e56520485d85a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="考点变量提升__undefined"><br>第二题<br><img src="https://upload-images.jianshu.io/upload_images/16597614-800c17f21e3908e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="考点混淆作用域__1"><br>第三题<br><img src="https://upload-images.jianshu.io/upload_images/16597614-7213b3877ba53497.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="经典题___6"></p>
+<hr>
+<ol start="6">
+<li>闭包<br>如果一个函数,使用了它范围外的变量,那么(这个函数+这个变量) 就叫做闭包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a=1</span><br><span class="line">function f4()&#123;</span><br><span class="line">  console.log(a) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/什么是标准库-数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/19/什么是标准库-数组/" itemprop="url">什么是标准库,数组?</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-19T10:59:51+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://upload-images.jianshu.io/upload_images/16597614-1a73b1ca4e67fade.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准库"></p>
+<p>五个falsy值:0,null,undefined,’’,NaN<br>七个数据类型:string,number,boolean,symbol,null,undefined,object</p>
+<p>js里array数组具有不一致性<br>var a = Array(3)    a.length=3  //3个undefined<br>var a = Array(3,3)     a.length=2 //[3,3]</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-f58e231790ff28c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="number和object加不加new"></p>
+<p>function有几种声明方法?<br>具名函数<br>function f(){<br>    return undefined<br>}<br>匿名函数<br>var f<br>f =function (){<br>}<br>Function<br>new Function(‘x’,’y’,’x+y’)</p>
+<hr>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-152ca6059be72ea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原型链"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-b8c67f44dd87b994.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>数组的本质就是 :   .__proto=array.prototype</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-43c7ef1ed792c392.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="forEach通过this获取a的值"></p>
+<p>sort是快排<br>x-y(从小到大排列:负数往前放.0放一起,正数往后放)<br>y-x(从大到小排列:正数往前放.0放一起,负数往后放)<br><img src="https://upload-images.jianshu.io/upload_images/16597614-ffb178a3831c0706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sort"></p>
+<p>join是合起来<br>concat是连接<br>map映射(地图)<br><img src="https://upload-images.jianshu.io/upload_images/16597614-6d37ae9c4c8f8212.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="map与forEach区别"></p>
+<p>filter是过滤(可以和map配合做链式操作)<br>var a = [1,2,3,4,5,6,7,8,9]<br>a.filter(???).map(???) // [4,16,36,64]<br>1.获取所有偶数<br>2.得到所有偶数的平方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a.filter(function(value,key)&#123;</span><br><span class="line">    return value % 2 ===0</span><br><span class="line">    &#125;).map(function(value,key)&#123;</span><br><span class="line">        return value * value</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>reduce减少,压缩<br><img src="https://upload-images.jianshu.io/upload_images/16597614-5b4f668221ec2dfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redecu(打劫sum+n)"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/16597614-8d9a5ac3c8ba380d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="map和filter可以用reduce表示"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/关于DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mich">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/关于DOM/" itemprop="url">关于DOM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:57:16+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>积累最近用到过的DOMapi</p>
+<ol>
+<li>节点创建型<br>1.1 createElement<br>createElement通过传入指定的一个标签名来创建一个元素，如果传入的标签名是一个未知的，则会创建一个自定义的标签<figure class="highlight plain"><figcaption><span>div </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用createElement要注意：通过createElement创建的元素并不属于html文档，它只是创建出来，并未添加到html文档中，要调用appendChild或insertBefore等方法将其添加到HTML文档树中。</span><br><span class="line">2. 页面修改型api</span><br><span class="line">2.2 appendChild</span><br><span class="line">将指定的节点添加到调用该方法的节点的子元素的末尾。</span><br><span class="line">```parent.appendChild(child);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果被添加的节点是一个页面中存在的节点，则执行后这个节点将会添加到指定位置，其原本所在的位置将移除该节点，也就是说不会同时存在两个该节点在页面上，相当于把这个节点移动到另一个地方。<br> 2.3  removeChild<br>removeChild顾名思义，就是删除指定的子节点并返回<br><code>var deletedChild = parent.removeChild(node);</code><br>deletedChild指向被删除节点的引用，它等于node，被删除的节点仍然存在于内存中，可以对其进行下一步操作。<br>如果被删除的节点不是其子节点，则程序将会报错。</p>
+<ol start="3">
+<li>节点查询型api<br>3.1 document.getElementById<br>根据元素id返回元素，返回值是Element类型，如果不存在该元素，则返回null。<br>使用这个接口有几点要注意：<br>（1）元素的Id是大小写敏感的，一定要写对元素的id<br>（2）HTML文档中可能存在多个id相同的元素，则返回第一个元素<br>（3）只从文档中进行搜索元素，如果创建了一个元素并指定id，但并没有添加到文档中，则这个元素是不会被查找到的<br>3.2 document.querySelector和document.querySelectorAll<br>这两个api很相似，通过css选择器来查找元素，注意选择器要符合<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_Started/Selectors" target="_blank" rel="noopener">CSS选择器</a>的规则。<br>首先来介绍一下document.querySelector。<br>document.querySelector返回第一个匹配的元素，如果没有匹配的元素，则返回null。<br>document.querySelectorAll的不同之处在于它返回的是所有匹配的元素，而且可以匹配多个选择符</li>
+<li>节点关系型api<br>4.1 父关系型api<br>parentNode：每个节点都有一个parentNode属性，它表示元素的父节点。Element的父节点可能是Element，Document或DocumentFragment。<br>parentElement：返回元素的父元素节点，与parentNode的区别在于，其父节点必须是一个Element，如果不是，则返回null<br>4.2 兄弟关系型api<br>previousSibling：节点的前一个节点，如果该节点是第一个节点，则为null。注意有可能拿到的节点是文本节点或注释节点，与预期的不符，要进行处理一下。<br>previousElementSibling：返回前一个元素节点，前一个节点必须是Element，注意IE9以下浏览器不支持。<br>nextSibling：节点的后一个节点，如果该节点是最后一个节点，则为null。注意有可能拿到的节点是文本节点，与预期的不符，要进行处理一下。<br>nextElementSibling：返回后一个元素节点，后一个节点必须是Element，注意IE9以下浏览器不支持。<br>4.3 子关系型api<br>childNodes：返回一个即时的NodeList，表示元素的子节点列表，子节点可能会包含文本节点，注释节点等。<br>children：一个即时的HTMLCollection，子节点都是Element，IE9以下浏览器不支持。<br>firstNode：第一个子节点<br>lastNode：最后一个子节点<br>hasChildNodes方法：可以用来判断是否包含子节点。</li>
+<li>元素样式型api<br>5.1 getBoundingClientRect<br>getBoundingClientRect用来返回元素的大小以及相对于浏览器可视窗口的位置<br>clientRect是一个DOMRect对象，包含left，top，right，bottom，它是相对于可视窗口的距离，滚动位置发生改变时，它们的值是会发生变化的。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JS普通类型和对象的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -793,855 +1625,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/关于HTML/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/04/关于HTML/" itemprop="url">关于HTML</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-04T10:31:07+08:00">
-                2019-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####W3C 简介</p>
-<p><strong>万维网联盟</strong>（<strong>World Wide Web Consortium</strong>，<strong>W3C</strong>），又称<strong>W3C理事会</strong>，是万维网的主要国际标准组织。为半自治非政府组织</p>
-<p>####标准</p>
-<p>为解决网络应用中不同平台、技术和开发者带来的不兼容问题，保障网络信息的顺利和完整流通，万维网联盟制定了一系列标准并督促网络应用开发者和内容提供者遵循这些标准。标准的内容包括使用语言的规范，开发中使用的导则和解释引擎的行为等等。W3C也制定了包括XML和CSS等的众多影响深远的标准规范。</p>
-<p>但是，W3C制定的网络标准似乎并非强制，而只是推荐标准。因此部分网站仍然不能完全实现这些标准，特别是使用早期所见即所得网页编辑软件设计的网页往往会包含大量非标准代码。</p>
-<p>####MDN 简介</p>
-<p><strong>MDN Web Docs</strong>（旧称Mozilla Developer Network、Mozilla Developer Center，简称MDN）是一个汇集众多Mozilla基金会产品和网路技术开发文档的免费网站</p>
-<hr>
-<p>1HTML 所有标签列表</p>
-<p>2什么是空标签（</p>
-<p>3什么是可替换标签</p>
-<p>1<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank" rel="noopener">这里</a>列出了所有<strong>标准化的 HTML5 元素</strong>，使用起始标签描述，按照功能分组。</p>
-<p>2没有闭合的标签称为<strong><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%A9%BA%E5%85%83%E7%B4%A0" target="_blank" rel="noopener">空元素</a></strong>，如：<code>&lt;br /&gt;</code> 和<code>&lt;img /&gt;</code> 等。他们不存在成对的情况反之具有成对性质的例如：<code>&lt;div&gt;</code> <code>&lt;/div&gt;</code> 、<code>&lt;form&gt;</code> <code>&lt;/form&gt;</code> 就不是空标签。在HTML中，在空标签上使用闭标签是无效的，例如：<code>&lt;/br&gt;</code> 。这样的情况是无效的HTML。</p>
-<p>在 HTML 中有以下这些空元素：</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/area" target="_blank" rel="noopener"><code>&lt;area&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/base" target="_blank" rel="noopener"><code>&lt;base&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/br" target="_blank" rel="noopener"><code>&lt;br&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/col" target="_blank" rel="noopener"><code>&lt;col&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup" target="_blank" rel="noopener"><code>&lt;colgroup&gt;</code> </a> when the <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup#attr-span" target="_blank" rel="noopener">span</a> is present</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/command" target="_blank" rel="noopener"><code>&lt;command&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/embed" target="_blank" rel="noopener"><code>&lt;embed&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hr" target="_blank" rel="noopener"><code>&lt;hr&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img" target="_blank" rel="noopener"><code>&lt;img&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input" target="_blank" rel="noopener"><code>&lt;input&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/keygen" target="_blank" rel="noopener"><code>&lt;keygen&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link" target="_blank" rel="noopener"><code>&lt;link&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta" target="_blank" rel="noopener"><code>&lt;meta&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/param" target="_blank" rel="noopener"><code>&lt;param&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" target="_blank" rel="noopener"><code>&lt;source&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/track" target="_blank" rel="noopener"><code>&lt;track&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/wbr" target="_blank" rel="noopener"><code>&lt;wbr&gt;</code> </a></p>
-<p>3在CSS里，<strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element" target="_blank" rel="noopener">可替换元素</a></strong>replaced element)的展现不是由CSS来控制的。这些元素是一类外观渲染独立于CSS的外部对象。典型的可替换元素有<code>&lt;img&gt;</code> 、<code>&lt;object&gt;</code> 、<code>&lt;video&gt;</code> 和表单元素，如<code>&lt;textarea&gt;</code> 、<code>&lt;input&gt;</code> (个人理解为自带宽高的元素就是可替换的)。某些元素只在一些特殊情况下表现为可替换元素，例如<code>&lt;audio&gt;</code> 和<code>&lt;canvas&gt;</code> 。通过CSS的content属性来插入的对象被称为匿名可替换对象(annoymous replaced elements)。</p>
-<p>CSS在某些情况下会对可替换元素做特殊处理，比如计算外边距和一些auto值。</p>
-<p>需要注意的是，一部分（并非全部）可替换元素，本身具有尺寸和基线(baseline)，会被想vertical-align之类的一些CSS属性用到。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/html入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/03/html入门/" itemprop="url">html入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-03T12:31:44+08:00">
-                2019-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####1.关于html标签<br><strong>在htm中这个元素是块级还是内联元素?(滚!我不管)[当你在写html标签时,不要管样式的问题!!!]</strong></p>
-<p><strong>html标签是没有块级元素和内联元素的区别的(在CSS中才有</strong></p>
-<hr>
-<p>下列哪些元素可以出现在 head 元素内？ 参看 <a href="https://github.com/joshbuchea/HEAD#elements" target="_blank" rel="noopener">https://github.com/joshbuchea/HEAD#elements</a></p>
-<hr>
-<p>####2. HTTP 是什么<br>HTTP是一种超文本传输协议.</p>
-<p>围绕以下四个问题来学习HTTP:</p>
-<ol>
-<li>HTTP 请求包括哪些部分，如何用Chrome开发者工具查看 HTTP 请求内容?</li>
-<li>常见的8种请求方法GET POST PUT PATCH DELETE HEAD OPTIONS CONNECT</li>
-<li><p>HTTP 响应包括哪些部分，如何用Chrome开发者工具查看 HTTP 响应内容?</p>
-</li>
-<li><p>如何使用 curl 命令?</p>
-</li>
-</ol>
-<hr>
-<p>####Q1: HTTP 请求包括哪些部分，如何用Chrome开发者工具查看 HTTP 请求内容?</p>
-<p>#####1.1 请求内容(5行)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">POST / HTTP/1.1</span><br><span class="line"></span><br><span class="line">Host: www.baidu.com</span><br><span class="line"></span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line"></span><br><span class="line">Accept: */*</span><br><span class="line"></span><br><span class="line">(代表一个回车)</span><br></pre></td></tr></table></figure></p>
-<p>#####1.2 如何用Chrome开发者工具查看 HTTP 请求内容?</p>
-<p>打开 Network</p>
-<p>地址栏输入网址</p>
-<p>在 Network 点击，查看 request，点击「view source」，点击「view source」，点击「view source」</p>
-<p>可以看到请求的前三部分了</p>
-<p>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</p>
-<h4 id="Q2-常见的8种请求方法GET-POST-PUT-PATCH-DELETE-HEAD-OPTIONS-CONNECT"><a href="#Q2-常见的8种请求方法GET-POST-PUT-PATCH-DELETE-HEAD-OPTIONS-CONNECT" class="headerlink" title="Q2: 常见的8种请求方法GET POST PUT PATCH DELETE HEAD OPTIONS CONNECT"></a>Q2: 常见的8种请求方法GET POST PUT PATCH DELETE HEAD OPTIONS CONNECT</h4><p>GET和POST ?</p>
-<p>get译为获取,当你访问页面时用get获取页面内容</p>
-<p>post译为上传,当你需要登录时用post登录(因为涉及密码所以post会更安全)</p>
-<p>PUT 和PATCH ?</p>
-<p>put全局更新(五行句子全部更新为一句</p>
-<p>patch局部更新(五行句子中的一句更新</p>
-<p>HEAD</p>
-<p>与GET方法一样，都是向服务器发出指定资源的请求。只不过服务器将不传回资源的本文部分。</p>
-<p>DELETE</p>
-<p>请求服务器删除Request-URI所标识的资源。</p>
-<p>TRACE</p>
-<p>回显服务器收到的请求，主要用于测试或诊断。</p>
-<p>OPTIONS</p>
-<p>这个方法可使服务器传回该资源所支持的所有HTTP请求方法。用’*’来代替资源名称，向Web服务器发送OPTIONS请求，可以测试服务器功能是否正常运作。</p>
-<p>CONNECT</p>
-<p>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</p>
-<h4 id="Q3-HTTP-响应包括哪些部分，如何用Chrome开发者工具查看-HTTP-响应内容"><a href="#Q3-HTTP-响应包括哪些部分，如何用Chrome开发者工具查看-HTTP-响应内容" class="headerlink" title="Q3 HTTP 响应包括哪些部分，如何用Chrome开发者工具查看 HTTP 响应内容?"></a>Q3 HTTP 响应包括哪些部分，如何用Chrome开发者工具查看 HTTP 响应内容?</h4><p>#####3.1响应格式</p>
-<p>1 协议/版本号 状态码 状态解释</p>
-<p>2 Key1: value1</p>
-<p>2 Key2: value2</p>
-<p>2 Content-Length: 17931</p>
-<p>2 Content-Type: text/html</p>
-<p>3</p>
-<p>4 要下载的内容</p>
-<p>#####3.2响应的状态码</p>
-<p>1xx 不常用</p>
-<p>2xx 表示成功</p>
-<p>3xx 表示滚吧(我搬家走了</p>
-<p>4xx 表示你丫错了(我真的错了</p>
-<p>5xx 表示好吧，我错了(服务器错误</p>
-<p>#####3.3如何用Chrome开发者工具查看 HTTP 响应内容?</p>
-<p>打开 Network</p>
-<p>输入网址</p>
-<p>选中第一个响应</p>
-<p>查看 Response Headers，点击「view source」，点击「view source」，点击「view source」</p>
-<p>你会看到响应的前两部分</p>
-<p>查看 Response 或者 Preview，你会看到响应的第 4 部分</p>
-<p>####Q4: 如何使用 curl 命令?</p>
-<p>打开gitbash输入指令curl -s -v -H  – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a></p>
-<p>即可查看请求内容</p>
-<p>http不加密密码内容,https加密密码内容</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/网络与IP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/03/网络与IP/" itemprop="url">网络与IP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-03T00:41:41+08:00">
-                2019-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="TCP传输控制协议（英语：Transmission-Control-Protocol）"><a href="#TCP传输控制协议（英语：Transmission-Control-Protocol）" class="headerlink" title="TCP传输控制协议（英语：Transmission Control Protocol）"></a>TCP传输控制协议（英语：Transmission Control Protocol）</h3><hr>
-<p><a href="https://www.nowcoder.com/questionTerminal/63c8b45c91a544bd8febc1f1ff02e3b5?toCommentId=73766" target="_blank" rel="noopener">TCP 和 UDP 的区别是什么</a></p>
-<p>简答：TCP 可靠、面向连接、相对 UDP 较慢；UDP 不可靠，不面向连接、相对 TCP 较快。搞定。</p>
-<p><a href="https://github.com/jawil/blog/issues/14" target="_blank" rel="noopener">TCP 的三次握手指的是什么</a></p>
-<p>简答：每次建立连接前，客户端和服务端之前都要先进行三次对话才开始正式传输内容，三次对话大概是这样的：</p>
-<p>1. 客户端：我要连接你了，可以吗</p>
-<p>2. 服务端：嗯，我准备好了，连接我吧</p>
-<p>3. 客户端：那我连接你咯。</p>
-<p>4. 开始后面步骤</p>
-<p>如果想更了解 TCP 可以看 <a href="http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html" target="_blank" rel="noopener">此文</a>，也可以买一本《TCP/IP 详解（卷一）》</p>
-<h3 id="IP-网络协议（英语：Internet-Protocol）"><a href="#IP-网络协议（英语：Internet-Protocol）" class="headerlink" title="IP 网络协议（英语：Internet Protocol）"></a>IP 网络协议（英语：Internet Protocol）</h3><hr>
-<p>只要你在互联网中，那么你就会有一个 IP。通俗上理解，IP 分为「内网 IP」 和「外网 IP」</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/16597614-e21bd4165be864a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>这里有一个重要的原则：一个端口对应一个服务。</p>
-<p>比如:</p>
-<p>要提供 HTTP 服务你最好使用 80 端口（能不能使用别的端口？可以，不过不建议你违反约定）</p>
-<p>要提供 HTTPS 服务你最好使用 443 端口（能不能使用别的端口？可以，不过不建议你违反约定）</p>
-<p>要提供 FTP 服务你最好使用 21 端口（能不能使用别的端口？可以，不过不建议你违反约定）</p>
-<p>问题：一共由多少端口？</p>
-<p>每个机器一共有 65535（2的16次方减1）个端口（这是协议规定的）。不过这些端口的使用由一些规定</p>
-<p>0 到 1023（2的10次方减1）号端口是留给系统使用的，你只有拥有了管理员权限后，才能使用这 1024 个端口。</p>
-<p>其他端口可以给普通用户使用</p>
-<p>如果一个端口正在提供服务，也就是被占用了，那么就不能再使用这个端口。除非你先停掉正在占用这个端口的服务。以后你们会经常遇到这个问题。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/如何使用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/01/如何使用命令/" itemprop="url">如何使用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-01T18:23:59+08:00">
-                2019-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如何使用以下命令</p>
-<ol>
-<li>ls</li>
-<li>cat</li>
-<li>mv</li>
-<li>touch<br>以及如何使用 explainshell.com 这个网站</li>
-</ol>
-<hr>
-<p>ls——————–打开gitbash,在你想要的目标路径下,找到你想查看内容的目标文件夹,在命令行里输入ls<br>cat——————打开gitbash,在你想要的目标路径下,找到你想要运行打开的文件,文本,html等等<br>mv——————打开gitbash,在你想要的目标路径下,找到你想要移动的文件,从A移动到B<br>touch————– 打开gitbash,在你想要的目标路径下,输入touch xxx.html(就可以创建一个xxx.html啦)<br>如何使用 explainshell.com 这个网站?<br>答:<br>在页面内的搜索框中输入你不懂意思的命令行指令然后按下回车<br>它可以给你展开全写增加可读性便于理解,比如ls(list directory contents),cat(concatenate files and print on the standard output)等等</p>
-<hr>
-<p>由于简书关闭了一段时间,所以从今天起,笔者将慢慢把简书内的个人文章(技术blog,随笔,心情之类的)转移过来…</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/第二篇博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第二篇博客/" itemprop="url">第二篇博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-28T12:31:44+08:00">
-                2019-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###第二篇了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/开博大吉/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mich">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mich's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/开博大吉/" itemprop="url">开博大吉</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-28T12:16:00+08:00">
-                2019-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="哈哈"><a href="#哈哈" class="headerlink" title="哈哈"></a>哈哈</h1><p>  我的博客开通啦</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1692,7 +1675,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1705,7 +1688,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

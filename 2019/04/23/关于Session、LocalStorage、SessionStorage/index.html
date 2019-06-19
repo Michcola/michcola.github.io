@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="HTTP,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="####W3C 简介 万维网联盟（World Wide Web Consortium，W3C），又称W3C理事会，是万维网的主要国际标准组织。为半自治非政府组织 ####标准 为解决网络应用中不同平台、技术和开发者带来的不兼容问题，保障网络信息的顺利和完整流通，万维网联盟制定了一系列标准并督促网络应用开发者和内容提供者遵循这些标准。标准的内容包括使用语言的规范，开发中使用的导则和解释引擎的行为等等">
+<meta name="description" content="什么是session?  服务器通过cookie给用户一个sessionID sessionID对应服务器内的一小块内存 每次用户访问服务器时,服务器通过sessionID就可以知道用户隐私信息     ####问: 什么是Cookie?   服务器通过Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时,必须带上这串字符串 客户端要在一段时间内保存这个Cookie Cook">
+<meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于HTML">
-<meta property="og:url" content="http://yoursite.com/2019/03/04/关于HTML/index.html">
+<meta property="og:title" content="关于Session、LocalStorage、SessionStorage">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/关于Session、LocalStorage、SessionStorage/index.html">
 <meta property="og:site_name" content="Mich&#39;s Blog">
-<meta property="og:description" content="####W3C 简介 万维网联盟（World Wide Web Consortium，W3C），又称W3C理事会，是万维网的主要国际标准组织。为半自治非政府组织 ####标准 为解决网络应用中不同平台、技术和开发者带来的不兼容问题，保障网络信息的顺利和完整流通，万维网联盟制定了一系列标准并督促网络应用开发者和内容提供者遵循这些标准。标准的内容包括使用语言的规范，开发中使用的导则和解释引擎的行为等等">
+<meta property="og:description" content="什么是session?  服务器通过cookie给用户一个sessionID sessionID对应服务器内的一小块内存 每次用户访问服务器时,服务器通过sessionID就可以知道用户隐私信息     ####问: 什么是Cookie?   服务器通过Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时,必须带上这串字符串 客户端要在一段时间内保存这个Cookie Cook">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-24T15:58:46.240Z">
+<meta property="og:updated_time" content="2019-06-19T14:14:39.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于HTML">
-<meta name="twitter:description" content="####W3C 简介 万维网联盟（World Wide Web Consortium，W3C），又称W3C理事会，是万维网的主要国际标准组织。为半自治非政府组织 ####标准 为解决网络应用中不同平台、技术和开发者带来的不兼容问题，保障网络信息的顺利和完整流通，万维网联盟制定了一系列标准并督促网络应用开发者和内容提供者遵循这些标准。标准的内容包括使用语言的规范，开发中使用的导则和解释引擎的行为等等">
+<meta name="twitter:title" content="关于Session、LocalStorage、SessionStorage">
+<meta name="twitter:description" content="什么是session?  服务器通过cookie给用户一个sessionID sessionID对应服务器内的一小块内存 每次用户访问服务器时,服务器通过sessionID就可以知道用户隐私信息     ####问: 什么是Cookie?   服务器通过Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时,必须带上这串字符串 客户端要在一段时间内保存这个Cookie Cook">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/04/关于HTML/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/23/关于Session、LocalStorage、SessionStorage/">
 
 
 
 
 
-  <title>关于HTML | Mich's Blog</title>
+  <title>关于Session、LocalStorage、SessionStorage | Mich's Blog</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/关于HTML/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/关于Session、LocalStorage、SessionStorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mich">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于HTML</h1>
+          <h1 class="post-title" itemprop="name headline">关于Session、LocalStorage、SessionStorage</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-04T10:31:07+08:00">
-                2019-03-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-23T22:12:08+08:00">
+                2019-04-23
               </time>
             
 
@@ -299,40 +300,76 @@
       
 
       
-        <p>####W3C 简介</p>
-<p><strong>万维网联盟</strong>（<strong>World Wide Web Consortium</strong>，<strong>W3C</strong>），又称<strong>W3C理事会</strong>，是万维网的主要国际标准组织。为半自治非政府组织</p>
-<p>####标准</p>
-<p>为解决网络应用中不同平台、技术和开发者带来的不兼容问题，保障网络信息的顺利和完整流通，万维网联盟制定了一系列标准并督促网络应用开发者和内容提供者遵循这些标准。标准的内容包括使用语言的规范，开发中使用的导则和解释引擎的行为等等。W3C也制定了包括XML和CSS等的众多影响深远的标准规范。</p>
-<p>但是，W3C制定的网络标准似乎并非强制，而只是推荐标准。因此部分网站仍然不能完全实现这些标准，特别是使用早期所见即所得网页编辑软件设计的网页往往会包含大量非标准代码。</p>
-<p>####MDN 简介</p>
-<p><strong>MDN Web Docs</strong>（旧称Mozilla Developer Network、Mozilla Developer Center，简称MDN）是一个汇集众多Mozilla基金会产品和网路技术开发文档的免费网站</p>
+        <p>什么是session?</p>
+<ol>
+<li>服务器通过cookie给用户一个sessionID</li>
+<li>sessionID对应服务器内的一小块内存</li>
+<li>每次用户访问服务器时,服务器通过sessionID就可以知道用户隐私信息  </li>
+</ol>
 <hr>
-<p>1HTML 所有标签列表</p>
-<p>2什么是空标签（</p>
-<p>3什么是可替换标签</p>
-<p>1<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank" rel="noopener">这里</a>列出了所有<strong>标准化的 HTML5 元素</strong>，使用起始标签描述，按照功能分组。</p>
-<p>2没有闭合的标签称为<strong><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%A9%BA%E5%85%83%E7%B4%A0" target="_blank" rel="noopener">空元素</a></strong>，如：<code>&lt;br /&gt;</code> 和<code>&lt;img /&gt;</code> 等。他们不存在成对的情况反之具有成对性质的例如：<code>&lt;div&gt;</code> <code>&lt;/div&gt;</code> 、<code>&lt;form&gt;</code> <code>&lt;/form&gt;</code> 就不是空标签。在HTML中，在空标签上使用闭标签是无效的，例如：<code>&lt;/br&gt;</code> 。这样的情况是无效的HTML。</p>
-<p>在 HTML 中有以下这些空元素：</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/area" target="_blank" rel="noopener"><code>&lt;area&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/base" target="_blank" rel="noopener"><code>&lt;base&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/br" target="_blank" rel="noopener"><code>&lt;br&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/col" target="_blank" rel="noopener"><code>&lt;col&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup" target="_blank" rel="noopener"><code>&lt;colgroup&gt;</code> </a> when the <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup#attr-span" target="_blank" rel="noopener">span</a> is present</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/command" target="_blank" rel="noopener"><code>&lt;command&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/embed" target="_blank" rel="noopener"><code>&lt;embed&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/hr" target="_blank" rel="noopener"><code>&lt;hr&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img" target="_blank" rel="noopener"><code>&lt;img&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input" target="_blank" rel="noopener"><code>&lt;input&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/keygen" target="_blank" rel="noopener"><code>&lt;keygen&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link" target="_blank" rel="noopener"><code>&lt;link&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta" target="_blank" rel="noopener"><code>&lt;meta&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/param" target="_blank" rel="noopener"><code>&lt;param&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" target="_blank" rel="noopener"><code>&lt;source&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/track" target="_blank" rel="noopener"><code>&lt;track&gt;</code> </a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/wbr" target="_blank" rel="noopener"><code>&lt;wbr&gt;</code> </a></p>
-<p>3在CSS里，<strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element" target="_blank" rel="noopener">可替换元素</a></strong>replaced element)的展现不是由CSS来控制的。这些元素是一类外观渲染独立于CSS的外部对象。典型的可替换元素有<code>&lt;img&gt;</code> 、<code>&lt;object&gt;</code> 、<code>&lt;video&gt;</code> 和表单元素，如<code>&lt;textarea&gt;</code> 、<code>&lt;input&gt;</code> (个人理解为自带宽高的元素就是可替换的)。某些元素只在一些特殊情况下表现为可替换元素，例如<code>&lt;audio&gt;</code> 和<code>&lt;canvas&gt;</code> 。通过CSS的content属性来插入的对象被称为匿名可替换对象(annoymous replaced elements)。</p>
-<p>CSS在某些情况下会对可替换元素做特殊处理，比如计算外边距和一些auto值。</p>
-<p>需要注意的是，一部分（并非全部）可替换元素，本身具有尺寸和基线(baseline)，会被想vertical-align之类的一些CSS属性用到。</p>
+<p>####问: 什么是Cookie? </p>
+<ol>
+<li>服务器通过Set-Cookie 头给客户端一串字符串</li>
+<li>客户端每次访问相同域名的网页时,必须带上这串字符串</li>
+<li>客户端要在一段时间内保存这个Cookie</li>
+<li>Cookie默认在用户关闭页面后就失效,后台代码可以任意设置Cookie的过期时间<br>####问: 什么是Session?</li>
+<li>将SessionID(随机数)通过Cookie发给客户端</li>
+<li>客户端访问服务器时,服务器读取SessoinID</li>
+<li>服务器有一块内存(哈希表)保存了所有session</li>
+<li>通过SessionID可以知道用户的隐私信息.如id,email</li>
+<li>这块内存就是服务器上的所有session</li>
+</ol>
+<hr>
+<p>LocalStorage</p>
+<ol>
+<li>LocalStorage 跟HTTP无关</li>
+<li>HTTP不会带上LocalStorage的值</li>
+<li>只有相同域名的页面才能互相读取LocalStorage(没有同源那么严格)</li>
+<li>每个域名LocalStorage最大存储量为5MB左右(每个浏览器不一样)</li>
+<li>常用场景: 记录有没有提示过用户(没有用的信息,不能记录密码)</li>
+<li>LocalStorage 永久有效,除非用户清理缓存</li>
+</ol>
+<p>SessionStorage(会话存储) </p>
+<ol>
+<li><ol start="2">
+<li><ol start="3">
+<li><ol start="4">
+<li>同上, 5. SessionStorage用户关闭页面(会话结束)后失效</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>素质三连</p>
+<ol>
+<li><p>session和cookie有什么关系?<br>session是基于cookie实现的</p>
+</li>
+<li><p>cookie和localstorage 的区别?<br>cookie每次请求会带到服务器上,localstorage不会<br>cookie一般4k左右,localstorage大约5MB</p>
+</li>
+<li><p>localstorage与sessionstorage有什么区别?<br>seessionstorage关闭页面后失效,localstorage不会</p>
+</li>
+</ol>
+<p>补充:sessionstorage与session间没有关系,前者是会话存储,后者就是变量名不翻译</p>
+<hr>
+<p>1.Cookie 和 Session 的区别?</p>
+<blockquote>
+<ol>
+<li>Cookie 保存在客户端，每次都随请求发送给 Server</li>
+<li>Session 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的</li>
+</ol>
+</blockquote>
+<hr>
+<ol start="4">
+<li>Cookie 如何设置过期时间？如何删除 Cookie？<br>1.1 设置Expires=xxx. xxx为本机时间<br>1.2 设置Max-age=yyy. yyy是一个时间长度</li>
+</ol>
+<p>2.1 chrome 按 CTRL+shift+del删除cookie<br>2.2 <code>document.cookie = &#39;test=xxxx;max-age=0&#39;</code><br>2.3 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cookie.setMaxAge(-1);//会话级cookie，关闭浏览器失效</span><br><span class="line">cookie.setMaxAge(60*60);//过期时间为1小时</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ol start="5">
+<li>Cache-Control: max-age=1000 缓存 与 ETag 的「缓存」有什么区别？<br>如果用Cache-Control就直接不请求<br>ETag要发送一个请求</li>
+</ol>
 
       
     </div>
@@ -348,6 +385,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
 
       
       
@@ -357,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/03/html入门/" rel="next" title="html入门">
-                <i class="fa fa-chevron-left"></i> html入门
+              <a href="/2019/04/21/关于Cookie/" rel="next" title="关于Cookie">
+                <i class="fa fa-chevron-left"></i> 关于Cookie
               </a>
             
           </div>
@@ -367,8 +410,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/04/HTML标签/" rel="prev" title="HTML标签">
-                HTML标签 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/24/关于HTTP缓存/" rel="prev" title="关于HTTP缓存">
+                关于HTTP缓存 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
